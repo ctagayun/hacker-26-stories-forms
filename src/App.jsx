@@ -428,7 +428,7 @@ const App = () => {
         </InputWithLabel>
 
         <button //(AA) this button confirms the search and executes the data request.
-          type="submit"
+          type="submit" //this attr means 'form'
           disabled={!searchTerm}
           onClick={handleSearchSubmit} //CC
         >

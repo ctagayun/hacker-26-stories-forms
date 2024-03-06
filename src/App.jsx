@@ -417,7 +417,13 @@ const App = () => {
    return (
     <div>
       <h1>My Hacker Stories</h1>
-      <form onSubmit={handleSearchSubmit}>
+
+      <SearchForm
+        searchTerm={searchTerm}
+        onSearchInput={handleSearchInput}
+        onSearchSubmit={handleSearchSubmit}
+      />
+      {/* <form onSubmit={handleSearchSubmit}>
         <InputWithLabel
           id="search"
           value={searchTerm}
@@ -434,7 +440,7 @@ const App = () => {
         >
           Submit
         </button>
-      </form> 
+      </form>  */}
       <hr />
 
       {stories.isError && <p>Something went wrong ...</p>}
@@ -514,6 +520,26 @@ const Item = ({ item, onRemoveItem }) => (
   </li>
 );
 
+const SearchForm = ({
+  searchTerm,
+  onSearchInput,
+  onSearchSubmit,
+}) => (
+  <form onSubmit={onSearchSubmit}>
+    <InputWithLabel
+      id="search"
+      value={searchTerm}
+      isFocused
+      onInputChange={onSearchInput}
+    >
+      <strong>Search:</strong>
+    </InputWithLabel>
+ 
+    <button type="submit" disabled={!searchTerm}>
+      Submit
+    </button>
+  </form>
+);
 export default App;
 
 //========================================================== 
